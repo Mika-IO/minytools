@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <script src="js/passwordGenerator.js"></script>
+    <script src="js/caseConverter.js"></script>
+    <script src="js/currencyConverter.js"></script>
+    <script src="js/metricConverter.js"></script>
+    <script src="js/temperatreConverter.js"></script>
+    <script src="js/minify.js"></script>
+    <script src="js/unminify.js"></script>
+    <link id="theme-style" rel="stylesheet" href="css/waterLight.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦗</text></svg>">
+    <title>MinyTools</title>
+</head>
+
+<body onload="initTheme()">
+    <script>AOS.init();</script>
+    
+    <button class="theme-button" onclick="changeTheme()" id="theme-toggle">🌙</button>
+    <div data-aos="fade-right">
+        <h1 id="summary">MinyTools🦗⚙️</h1></br>
+        <a href="#password-generator">Password Generator 🔑</a></br></br>
+        <a href="#case-converter">Case Converter ✉️</a></br></br>
+        <a href="#currency-converter">Currecy Converter  💰</a></br></br>
+        <a href="#metric-converter">Metric Converter 📐</a></br></br>
+        <a href="#temperature-converter">Temperature Converter 🌡️</a></br></br>
+        <a href="#minify-code">Minify Code 👨🏻‍💻</a></br></br>
+        <a href="#unminify-code">Unminify Code 👩🏻‍💻</a></br></br>   
+    </div>
+
+    <!-- PASSWORD GENERATOR  -->
+    <div data-aos="fade-left">
+        <h1 id="password-generator">Password Generator 🔑</h1>
+        <br>
+        <label for="password-length">Password Length</label>
+        <input type="number" id="password-length" name="password-length" min="1" max="50" value="8"><br>
+        <input checked type="checkbox" name="uppercase" id="uppercase"><label for="uppercase">Uppercase</label></br></br>
+        <input checked type="checkbox" name="numbers" id="numbers"><label for="numbers">Numbers</label></br></br>
+        <input checked type="checkbox" name="symbols" id="symbols"><label for="symbols">Symbols</label></br></br>
+        <button onload="generatePassword()" onclick="generatePassword()">Generate</button><br><br>
+        <input disabled type="text" id="password" value="">
+        <button id="copy-password" onclick="copyPassword()">Copy to clipboard</button>
+        <br>
+        <a class="back-to-top" href="#summary">Back to top ⬆</a>
+    </div>
+
+
+
+    <div data-aos="fade-right">
+        <h1 id="case-converter">Case Converter  ✉️</h1>
+        </br>
+        <form> 
+            <textarea id="input" rows="10" cols="50"></textarea><br><br>
+            <button onclick="sentenceCase()">Sentence case</button>
+            <button onclick="lowerCase()">lower case</button>
+            <button onclick="upperCase()">UPPER CASE</button>
+            <button onclick="capitalizedCase()">Capitalized Case</button>
+            <button onclick="alternatingCase()">aLtErNaTiNg cAsE</button>
+            <button onclick="titleCase()">Title Case</button>
+            <button onclick="inverseCase()">InVeRsE CaSe</button><br><br>
+            <textarea id="output" rows="10" cols="50"></textarea>
+            <button onclick="downloadText()">Download Text</button>
+            <button id="caseConverterCopy" onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="clearText()">Clear</button>
+        </form>
+        </br>
+        <a class="back-to-top" href="#summary">Back to top ⬆</a>
+    </div>
+
+    <div data-aos="fade-left">
+        <h1 id="currency-converter">Currecy Converter 💰</h1>
+        </br>
+        <form> 
+            <label for="currency-1">From:</label>
+            <select id="currency-1">
+                <option value="USD">Dólar Americano (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">Libra Esterlina (GBP)</option>
+                <option value="JPY">Iene Japonês (JPY)</option>
+            </select><br><br>
+
+            <label for="currency-2">To:</label>
+            <select id="currency-2">
+                <option value="USD">Dólar Americano (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">Libra Esterlina (GBP)</option>
+                <option value="JPY">Iene Japonês (JPY)</option>
+            </select><br><br>
+
+            <label for="amount">Quantity:</label>
+            <input type="number" id="amount" value="1">
+
+            <button onclick="convertCurrency()">Converter</button><br><br>
+            <br>
+            <label for="result">Result:</label>
+            <br>
+            <input disabled id="result"></input>
+        </form>
+        </br>
+        <a class="back-to-top" href="#summary">Back to top ⬆</a>
+    </div>
+    
+    <div data-aos="fade-right">
+        <h1 id="metric-converter">Metric Converter</h1>
+        </br>
+        <form> 
+            <textarea name="about" id="about" placeholder="Write here..."></textarea>
+            <input type="submit" value="Generate"> 
+        </form>
+        </br>
+        <a class="back-to-top" href="#summary">Back to top ⬆</a>
+    
+    </div>
+
+
+
+    <!-- TEMPERATURE CONVERTER -->
+    <div data-aos="fade-left">
+        <h1 id="temperature-converter">Temperature Converter 🌡️</h1>
+        <form>
+            <br>
+            <input type="number" id="temperatureInput" placeholder="Enter temperature"><br>
+            <label>From: </label>
+            <select id="scaleInput">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+                <option value="reaumur">Reaumur</option>
+                <option value="rankine">Rankine</option>
+            </select><br>
+            <label>To: </label>
+            <select id="scaleOutput">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+                <option value="reaumur">Reaumur</option>
+                <option value="rankine">Rankine</option>
+            </select><br>
+            <label>Decimal places: </label>
+            <select id="decimalPlaces">
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <br><br>
+            <button onclick="temperatureConvert()">Convert</button><br><br>
+            <label>Output temperature: </label>
+            <input type="number" id="temperatureOutput" readonly><br><br>
+        </form>
+        <a class="back-to-top" href="#summary">Back to top ⬆</a>
+    </div>
+
+    <div data-aos="fade-right">
+        <h1 id="minify-code">Minify code</h1>
+        </br>
+        <form> 
+            <textarea name="about" id="about" placeholder="Write here..."></textarea>
+            <input type="submit" value="Generate"> 
+        </form>
+        </br>
+        <a class="back-to-top" href="#summary">Back to top ⬆</a>
+    </div>
+
+    <div data-aos="fade-left">
+        <h1 id="unminify-code">Unminify code</h1>
+        </br>
+        <form> 
+            <textarea name="about" id="about" placeholder="Write here..."></textarea>
+            <input type="submit" value="Generate"> 
+        </form>
+        </br>
+        <a class="back-to-top" href="#summary">Back to top ⬆</a>
+    </div>
+
+    <footer data-aos="fade-up">
+        <h3>All rights reserved to <b><i> <a class="back-to-top" href="https://mikaiodev.com">mikaiodev.com</a> </i></b></h3>
+        <a href="mailto:mikaiodev@gmail.com">Email</a><br><br>
+        <a href="https://github.com/Mika-IO">🐱 Github</a><br><br>
+        <a href="https://www.linkedin.com/in/mikaiofaria/">👔 Linkedin</a><br><br>
+    </footer>
+   
+</body>
+
+</html>
