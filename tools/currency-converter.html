@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link id="theme-style" rel="stylesheet" href="../css/waterLight.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦗</text></svg>">
+    <title>MinyTools</title>
+</head>
+<body onload="initTheme()">
+    <script>AOS.init();</script>
+    <button class="theme-button" onclick="changeTheme()" id="theme-toggle">🌙</button>
+    <!-- CURRENCY CONVERTER -->
+    <script src="../js/currencyConverter.js"></script>
+    <div data-aos="fade-left">
+        <h1 id="currency-converter">Currecy Converter 💰</h1>
+        </br>
+        <form> 
+            <label for="currency-1">From:</label>
+            <select id="currency-1">
+                <option value="USD">Dólar Americano (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">Libra Esterlina (GBP)</option>
+                <option value="JPY">Iene Japonês (JPY)</option>
+            </select><br><br>
+
+            <label for="currency-2">To:</label>
+            <select id="currency-2">
+                <option value="USD">Dólar Americano (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">Libra Esterlina (GBP)</option>
+                <option value="JPY">Iene Japonês (JPY)</option>
+            </select><br><br>
+
+            <label for="amount">Quantity:</label>
+            <input type="number" id="amount" value="1">
+
+            <button onclick="convertCurrency()">Converter</button><br><br>
+            <br>
+            <label for="result">Result:</label>
+            <br>
+            <input disabled id="result"></input>
+        </form>
+        </br>
+        <a class="back-to-top" href="../index.html">Back to home ⬆</a>
+    </div>
+</body>
+</html>

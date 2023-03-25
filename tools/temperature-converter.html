@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link id="theme-style" rel="stylesheet" href="../css/waterLight.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦗</text></svg>">
+    <title>MinyTools</title>
+</head>
+<body onload="initTheme()">
+    <script>AOS.init();</script>
+    <button class="theme-button" onclick="changeTheme()" id="theme-toggle">🌙</button>
+    <!-- TEMPERATURE CONVERTER -->
+    <script src="../js/temperatreConverter.js"></script>
+    <div data-aos="fade-left">
+        <h1 id="temperature-converter">Temperature Converter 🌡️</h1>
+        <form>
+            <br>
+            <input type="number" id="temperatureInput" placeholder="Enter temperature"><br>
+            <label>From: </label>
+            <select id="scaleInput">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+                <option value="reaumur">Reaumur</option>
+                <option value="rankine">Rankine</option>
+            </select><br>
+            <label>To: </label>
+            <select id="scaleOutput">
+                <option value="celsius">Celsius</option>
+                <option value="fahrenheit">Fahrenheit</option>
+                <option value="kelvin">Kelvin</option>
+                <option value="reaumur">Reaumur</option>
+                <option value="rankine">Rankine</option>
+            </select><br>
+            <label>Decimal places: </label>
+            <select id="decimalPlaces">
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <br><br>
+            <button onclick="temperatureConvert()">Convert</button><br><br>
+            <label>Output temperature: </label>
+            <input type="number" id="temperatureOutput" readonly><br><br>
+        </form>
+        <a class="back-to-top" href="../index.html">Back to home ⬆</a>
+    </div> 
+</body>
+</html>

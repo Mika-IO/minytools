@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link id="theme-style" rel="stylesheet" href="../css/waterLight.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦗</text></svg>">
+    <title>MinyTools</title>
+</head>
+<body onload="initTheme()">
+    <script>AOS.init();</script>    
+    <button class="theme-button" onclick="changeTheme()" id="theme-toggle">🌙</button>
+    <!-- CASE CONVERTER -->
+    <script src="../js/caseConverter.js"></script>
+    <div data-aos="fade-right">
+        <h1 id="case-converter">Case Converter  ✉️</h1>
+        </br>
+        <form> 
+            <textarea id="input" rows="10" cols="50"></textarea><br><br>
+            <button onclick="sentenceCase()">Sentence case</button>
+            <button onclick="lowerCase()">lower case</button>
+            <button onclick="upperCase()">UPPER CASE</button>
+            <button onclick="capitalizedCase()">Capitalized Case</button>
+            <button onclick="alternatingCase()">aLtErNaTiNg cAsE</button>
+            <button onclick="titleCase()">Title Case</button>
+            <button onclick="inverseCase()">InVeRsE CaSe</button><br><br>
+            <textarea id="output" rows="10" cols="50"></textarea>
+            <button onclick="downloadText()">Download Text</button>
+            <button id="caseConverterCopy" onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="clearText()">Clear</button>
+        </form>
+        </br>
+        <a class="back-to-top" href="../index.html">Back to home ⬆</a>
+    </div>
+</body>
+</html>
