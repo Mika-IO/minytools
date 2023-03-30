@@ -15,41 +15,38 @@
 <body onload="initTheme()">
     <script>AOS.init();</script>
     <button class="theme-button" onclick="changeTheme()" id="theme-toggle">🌙</button>
-    <!-- TEMPERATURE CONVERTER -->
-    <script src="../js/temperatreConverter.js"></script>
+    <script src="../js/tools/temperatureConverter.js"></script>
     <div data-aos="fade-left">
         <h1 id="temperature-converter">Temperature Converter 🌡️</h1>
-        <form>
-            <br>
-            <input type="number" id="temperatureInput" placeholder="Enter temperature"><br>
-            <label>From: </label>
-            <select id="scaleInput">
-                <option value="celsius">Celsius</option>
-                <option value="fahrenheit">Fahrenheit</option>
-                <option value="kelvin">Kelvin</option>
-                <option value="reaumur">Reaumur</option>
-                <option value="rankine">Rankine</option>
-            </select><br>
-            <label>To: </label>
-            <select id="scaleOutput">
-                <option value="celsius">Celsius</option>
-                <option value="fahrenheit">Fahrenheit</option>
-                <option value="kelvin">Kelvin</option>
-                <option value="reaumur">Reaumur</option>
-                <option value="rankine">Rankine</option>
-            </select><br>
-            <label>Decimal places: </label>
-            <select id="decimalPlaces">
-                <option value="2" selected>2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <br><br>
-            <button onclick="temperatureConvert()">Convert</button><br><br>
-            <label>Output temperature: </label>
-            <input type="number" id="temperatureOutput" readonly><br><br>
-        </form>
+        <br>
+        <input type="number" id="temperatureInput" placeholder="Enter temperature"><br>
+        <label>From: </label>
+        <select id="scaleInput">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+            <option value="reaumur">Reaumur</option>
+            <option value="rankine">Rankine</option>
+        </select><br>
+        <label>To: </label>
+        <select id="scaleOutput">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+            <option value="reaumur">Reaumur</option>
+            <option value="rankine">Rankine</option>
+        </select><br>
+        <label>Decimal places: </label>
+        <select id="decimalPlaces">
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br><br>
+        <button onclick="temperatureConvert()">Convert</button><br><br>
+        <label>Output temperature: </label>
+        <input type="number" id="temperatureOutput" readonly><br><br>
         <a class="back-to-top" href="../index.html">Back to home ⬆</a>
     </div> 
 </body>

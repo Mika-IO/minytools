@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conversor de Área</title>
+	<script>
+		function convert() {
+			var from = document.getElementById("from").value;
+			var to = document.getElementById("to").value;
+			var value = parseFloat(document.getElementById("value").value);
+
+			if (from == "sqm" && to == "sqft") {
+				value = value * 10.764;
+			} else if (from == "sqft" && to == "sqm") {
+				value = value / 10.764;
+			} else if (from == "sqm" && to == "sqin") {
+				value = value * 1550;
+			} else if (from == "sqin" && to == "sqm") {
+				value = value / 1550;
+			} else if (from == "sqft" && to == "sqin") {
+				value = value * 144;
+			} else if (from == "sqin" && to == "sqft") {
+				value = value / 144;
+			}
+
+			document.getElementById("result").value = value.toFixed(2);
+		}
+	</script>
+</head>
+<body>
+	<h1>Conversor de Área</h1>
+	<label>De:</label>
+	<select id="from">
+		<option value="sqm">Metro Quadrado (m²)</option>
+		<option value="sqft">Pé Quadrado (ft²)</option>
+		<option value="sqin">Polegada Quadrada (in²)</option>
+	</select>
+	<br>
+	<label>Para:</label>
+	<select id="to">
+		<option value="sqm">Metro Quadrado (m²)</option>
+		<option value="sqft">Pé Quadrado (ft²)</option>
+		<option value="sqin">Polegada Quadrada (in²)</option>
+	</select>
+	<br>
+	<label>Valor:</label>
+	<input type="number" id="value">
+	<button onclick="convert()">Converter</button>
+	<br>
+	<label>Resultado:</label>
+	<input type="number" id="result" disabled>
+</body>
+</html>

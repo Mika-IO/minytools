@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Controle Financeiro Doméstico</title>
+	<script>
+		// função para calcular o saldo atual
+		function calcularSaldo() {
+			var tabela = document.getElementById("tabela");
+			var saldo = 0;
+			for (var i = 1; i < tabela.rows.length; i++) {
+				if (tabela.rows[i].cells[1].innerHTML[0] == '-') {
+					saldo -= parseFloat(tabela.rows[i].cells[1].innerHTML.substring(1));
+				} else {
+					saldo += parseFloat(tabela.rows[i].cells[1].innerHTML);
+				}
+			}
+			document.getElementById("saldo").innerHTML = saldo.toFixed(2);
+		}
+
+		// função para filtrar as entradas por data
+		function filtrar() {
+			var tabela = document.getElementById("tabela");
+			var inicio = document.getElementById("inicio").value;
+			var fim = document.getElementById("fim").value;
+			for (var i = 1; i < tabela.rows.length; i++) {
+				var data = tabela.rows[i].cells[0].innerHTML;
+				if (data < inicio || data > fim) {
+					tabela.rows[i].style.display = "none";
+				} else {
+					tabela.rows[i].style.display = "";
+				}
+			}
+			calcularSaldo();
+		}
+
+		// função para adicionar uma nova entrada
+		function adicionar() {
+			var tabela = document.getElementById("tabela");
+			var data = document.getElementById("data").value;
+			var valor = parseFloat(document.getElementById("valor").value);
+			var tags = document.getElementById("tags").value;
+			var novaLinha = tabela.insertRow(-1);
+			var novaCelula1 = novaLinha.insertCell(0);
+			novaCelula1.innerHTML = data;
+			var novaCelula2 = novaLinha.insertCell(1);
+			novaCelula2.innerHTML = valor.toFixed(2);
+			var novaCelula3 = novaLinha.insertCell(2);
+			novaCelula3.innerHTML = tags;
+			calcularSaldo();
+		}
+
+		// função para ordenar as entradas por data
+		function ordenar() {
+			var tabela = document.getElementById("tabela");
+			var linhas = tabela.rows;
+			var arr = [];
+			for (var i = 1; i < linhas.length; i++) {
+				var data = linhas[i].cells[0].innerHTML.split('-');
+				arr.push([data[2], data[1], data[0], linhas[i].outerHTML]);
+			}
+			arr.sort();
+			for (var i = 1; i < linhas.length; i++) {
+				linhas[i].outerHTML = arr[i - 1][3];
+			}
+			calcularSaldo();
+		}
+	</script>
+</head>
+<body onload="calcularSaldo()">
+	<h1>Controle Financeiro Doméstico</h1>
+	<form>
+		<label for="data">Data:</label>
+		<input type="date" id="data" name="data"><br><br>
+		<label for="valor">Valor:</label>
+		<input type="number" id="valor" name="valor" step="0.01"><br><br>
+		<label for="tags">Tags:</label>
+		<input type="text"
+        id="tags" name="tags"><br><br>
+        <input type="button" value="Adicionar" onclick="adicionar()">
+        </form>
+        <br>
+        <label for="saldo">Saldo atual:</label>+
+        <span id="saldo"></span>
+        <br><br>
+        <label for="inicio">Início:</label>
+        <input type="date" id="inicio" name="inicio" value="2023-11-01">
+        <label for="fim">Fim:</label>
+        <input type="date" id="fim" name="fim" value="2023-03-30">
+        <input type="button" value="Filtrar" onclick="filtrar()">
+        <input type="button" value="Ordenar" onclick="ordenar()">
+        <br><br>
+        <table id="tabela">
+        <tr>
+        <th>Data</th>
+        <th>Valor</th>
+        <th>Tags</th>
+        </tr>
+        <tr>
+        <td>2023-11-01</td>
+        <td>-1000,00</td>
+        <td>Salário :(</td>
+        </tr>
+        <tr>
+        <td>2023-12-15</td>
+        <td>-74,23</td>
+        <td>mercado</td>
+        </tr>
+        <tr>
+        <td>2023-12-23</td>
+        <td>-39,90</td>
+        <td>presente, livro</td>
+        </tr>
+        <tr>
+        <td>2023-01-03</td>
+        <td>-342,59</td>
+        <td>presente</td>
+        </tr>
+        <tr>
+        <td>2023-01-11</td>
+        <td>+30,00</td>
+        <td>Ganhei a aposta com o Zé</td>
+        </tr>
+        <tr>
+        <td>2023-01-12</td>
+        <td>-35,00</td>
+        <td>presente, nerd</td>
+        </tr>
+        <tr>
+        <td>2023-01-29</td>
+        <td>-95,67</td>
+        <td>mercado</td>
+        </tr>
+        <tr>
+        <td>2023-02-12</td>
+        <td>-199,90</td>
+        <td>presente</td>
+        </tr>
+        <tr>
+        <td>2023-03-20</td>
+        <td>-10,00</td>
+        <td>Carnê do Baú</td>
+        </tr>
+        </table>
+        
+        </body>
+        </html>

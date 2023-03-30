@@ -15,37 +15,34 @@
 <body onload="initTheme()">
     <script>AOS.init();</script>
     <button class="theme-button" onclick="changeTheme()" id="theme-toggle">🌙</button>
-    <!-- CURRENCY CONVERTER -->
-    <script src="../js/currencyConverter.js"></script>
+    <script src="../js/tools/currencyConverter.js"></script>
     <div data-aos="fade-left">
         <h1 id="currency-converter">Currecy Converter 💰</h1>
         </br>
-        <form> 
-            <label for="currency-1">From:</label>
-            <select id="currency-1">
-                <option value="USD">Dólar Americano (USD)</option>
-                <option value="EUR">Euro (EUR)</option>
-                <option value="GBP">Libra Esterlina (GBP)</option>
-                <option value="JPY">Iene Japonês (JPY)</option>
-            </select><br><br>
+        <label for="currency-1">From:</label>
+        <select id="currency-1">
+            <option value="USD">Dólar Americano (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+            <option value="JPY">Iene Japonês (JPY)</option>
+        </select><br><br>
 
-            <label for="currency-2">To:</label>
-            <select id="currency-2">
-                <option value="USD">Dólar Americano (USD)</option>
-                <option value="EUR">Euro (EUR)</option>
-                <option value="GBP">Libra Esterlina (GBP)</option>
-                <option value="JPY">Iene Japonês (JPY)</option>
-            </select><br><br>
+        <label for="currency-2">To:</label>
+        <select id="currency-2">
+            <option value="USD">Dólar Americano (USD)</option>
+            <option value="EUR">Euro (EUR)</option>
+            <option value="GBP">Libra Esterlina (GBP)</option>
+            <option value="JPY">Iene Japonês (JPY)</option>
+        </select><br><br>
 
-            <label for="amount">Quantity:</label>
-            <input type="number" id="amount" value="1">
+        <label for="amount">Quantity:</label>
+        <input type="number" id="amount" value="1">
 
-            <button onclick="convertCurrency()">Converter</button><br><br>
-            <br>
-            <label for="result">Result:</label>
-            <br>
-            <input disabled id="result"></input>
-        </form>
+        <button onclick="convertCurrency()">Converter</button><br><br>
+        <br>
+        <label for="result">Result:</label>
+        <br>
+        <input disabled id="result"></input>
         </br>
         <a class="back-to-top" href="../index.html">Back to home ⬆</a>
     </div>

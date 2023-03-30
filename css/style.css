@@ -20,3 +20,9 @@ div {
     right: 10px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 767px) {
+    .theme-button{
+        display: none;
+    }
+}
